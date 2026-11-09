@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Kuznecov_41"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProductPage">
+      Title="ProductPage" FontFamily="Comic Sans MS">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,7 +15,33 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        
+        <StackPanel Orientation="Horizontal">
+            <WrapPanel  Margin="0,0,0,25" VerticalAlignment="Center">
+
+                <TextBlock Text="Кол-во __ из __" Name="amountCounter" Margin="0,0,15,0" FontSize="20" VerticalAlignment ="Center"></TextBlock>
+                <StackPanel Margin="0,0,15,0" Orientation="Horizontal" VerticalAlignment ="Center">
+                    <TextBlock Text="Поиск по ноименованию" FontSize="20"></TextBlock>
+                    <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="150" FontSize="15" Margin="15,0,0,0"></TextBox>
+                </StackPanel>
+            </WrapPanel>
+
+            <WrapPanel Orientation="Vertical" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <RadioButton Content="По возрастанию стоимости" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp" VerticalContentAlignment="Center" ></RadioButton>
+                    <RadioButton Content="По убыванию стоимости" FontSize="20" Checked="RButtonDown_Checked" Name="RButtonDown" VerticalContentAlignment="Center" ></RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Фильтрация по скидке" FontSize="20"></TextBlock>
+                    <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15">
+                        <TextBlock>Все</TextBlock>
+                        <TextBlock>от 0 до 10%</TextBlock>
+                        <TextBlock>от 10 до 15%</TextBlock>
+                        <TextBlock>от 15 до 100%</TextBlock>
+                    </ComboBox>
+                </StackPanel>
+            </WrapPanel>
+        </StackPanel>
+
         <ListView Name="ProductListView" HorizontalContentAlignment="Stretch" Grid.Row="2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
