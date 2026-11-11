@@ -23,7 +23,8 @@ namespace Kuznecov_41
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductPage());
+            MainFrame.Navigate(new AuthPage());
+            Mananger.MainFrame = MainFrame;
         }
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)

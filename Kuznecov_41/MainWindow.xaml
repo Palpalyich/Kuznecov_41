@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kuznecov_41"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="/Image/icon.ico">
+        Title="Kuznecov_41" Height="450" Width="800" Icon="/Image/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
@@ -13,7 +13,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Left" Source="Image\logo.png"/>
-        <TextBlock Text="Kuznecov41" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontFamily="Comic Sans MS" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="ООО 41 РАЗМЕР" Grid.Row="0" HorizontalAlignment="Center" FontSize="30" FontFamily="Comic Sans MS" VerticalAlignment="Center"></TextBlock>
         <Button Content="Назад" Grid.Row="0" Name ="Btn_Back" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" FontFamily="Comic Sans MS" Background="#CC6600" Click="Btn_Back_Click" ></Button>
         <Frame Grid.Row="1" Name ="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
     </Grid>

@@ -43,6 +43,10 @@ namespace Kuznecov_41
             }
         }
 
+        
+        public int Quantity { get; set; }
+        
+
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }

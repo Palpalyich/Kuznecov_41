@@ -10,40 +10,64 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <WrapPanel  Margin="0,0,0,25" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="BtnViewOrder" Content="Просмотр заказа" Visibility="Collapsed" Click="BtnViewOrder_Click" Grid.Row="0" HorizontalAlignment="Right"/>
+            <StackPanel Grid.Row="0"
+        HorizontalAlignment="Right"
+        Margin="10">
 
-                <TextBlock Text="Кол-во __ из __" Name="amountCounter" Margin="0,0,15,0" FontSize="20" VerticalAlignment ="Center"></TextBlock>
-                <StackPanel Margin="0,0,15,0" Orientation="Horizontal" VerticalAlignment ="Center">
-                    <TextBlock Text="Поиск по ноименованию" FontSize="20"></TextBlock>
-                    <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="150" FontSize="15" Margin="15,0,0,0"></TextBox>
-                </StackPanel>
-            </WrapPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="TBlockAuthLabel"
+                   Text="Вы вошли как: "/>
 
-            <WrapPanel Orientation="Vertical" Margin="0,0,0,10">
-                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                    <RadioButton Content="По возрастанию стоимости" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp" VerticalContentAlignment="Center" ></RadioButton>
-                    <RadioButton Content="По убыванию стоимости" FontSize="20" Checked="RButtonDown_Checked" Name="RButtonDown" VerticalContentAlignment="Center" ></RadioButton>
+                    <TextBlock Name="FIOTB"
+                   Text="Гость"
+                   FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="Фильтрация по скидке" FontSize="20"></TextBlock>
-                    <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15">
-                        <TextBlock>Все</TextBlock>
-                        <TextBlock>от 0 до 10%</TextBlock>
-                        <TextBlock>от 10 до 15%</TextBlock>
-                        <TextBlock>от 15 до 100%</TextBlock>
-                    </ComboBox>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Роль: "/>
+                    <TextBlock Name="RoleTB"
+                   Text="Гость"
+                   FontWeight="Bold"/>
                 </StackPanel>
-            </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel  Margin="0,0,0,25" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Text="Кол-во __ из __" Name="amountCounter" Margin="0,0,15,0" FontSize="20" VerticalAlignment ="Center" Grid.Row ="1"></TextBlock>
+            <StackPanel Margin="0,0,15,0" Orientation="Horizontal" VerticalAlignment ="Center" Grid.Row ="1">
+                <TextBlock Text="Поиск по ноименованию" FontSize="20"></TextBlock>
+                <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" FontSize="15" Margin="15,0,0,0"  Width="200"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row ="1">
+                <TextBlock Text="Фильтрация по скидке" FontSize="20"></TextBlock>
+                <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" FontSize="15">
+                    <TextBlock>Все</TextBlock>
+                    <TextBlock>от 0 до 10%</TextBlock>
+                    <TextBlock>от 10 до 15%</TextBlock>
+                    <TextBlock>от 15 до 100%</TextBlock>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10" Grid.Row ="1">
+                <RadioButton Content="По возрастанию стоимости" FontSize="20" Checked="RButtonUp_Checked" Name="RButtonUp" VerticalContentAlignment="Center" Margin="0,0,20,20"></RadioButton>
+                <RadioButton Content="По убыванию стоимости" FontSize="20" Checked="RButtonDown_Checked" Name="RButtonDown" VerticalContentAlignment="Center" ></RadioButton>
+            </StackPanel>
         </StackPanel>
 
         <ListView Name="ProductListView" HorizontalContentAlignment="Stretch" Grid.Row="2">
-                <ListView.ItemTemplate>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить к заказу" Click="MenuItem_Click_1"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -80,5 +104,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+      
     </Grid>
 </Page>
