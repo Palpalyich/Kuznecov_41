@@ -178,6 +178,14 @@ namespace Kuznecov_41
         private void BtnPlus_Click(object sender, RoutedEventArgs e)
         {
             var prod = (sender as Button).DataContext as Product;
+
+            if (prod.Quantity >= prod.ProductQuantityInStock)
+            {
+                MessageBox.Show($"На складе доступно только {prod.ProductQuantityInStock} шт. этого товара.",
+                                "Ограничение количества", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return; // Прерываем выполнение, не увеличивая количество
+            }
+
             prod.Quantity++;
 
             var selectedOP = selectedOrderProducts.FirstOrDefault(p => p.ProductArticleNumber == prod.ProductArticleNumber);
